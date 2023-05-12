@@ -1,0 +1,5 @@
+When runners arrive at a checkpoint they press a GPS button on their cellphone. This submits the phone's gps coordinates to drupal. This creates a content of type "Read". If everything is fine, the Read is valid and the runner is sent to the next checkpoint. If the runner is too far from the checkpoint the Read is invalid and the runner is told to try again.
+
+ In some cases however (e.g. pressing the GPS button accidentally twice) two identical valid Reads are created which messes up the run history. 
+ 
+The controller uses https://github.com/php-lock/lock to prevent creating two pieces of content of the same kind too fast. 
